@@ -4,12 +4,14 @@ import (
     "fmt"
 )
 
-const uri = "https://example.org:6001/v2/snacks?"
+const Uri = "https://example.org:6001/v2/snacks?"
 
-func main() {
+func buildurl(rv, qv, sv string) {
     var rt, qt, st string = "req", "quantity", "size" 
-    var rv, qv, sv string = "snickers", "1", "king" 
-    res := fmt.Sprintf("%s%s=%s&%s=%s&%s=%s", uri, rt, rv, qt, qv, st, sv)
-    fmt.Println(res)
+    return fmt.Sprintf("%s%s=%s&%s=%s&%s=%s", Uri, rt, rv, qt, qv, st, sv)
+}
+
+func main(){
+    fmt.Println(buildurl("snickers","1","king"))
 }
 
